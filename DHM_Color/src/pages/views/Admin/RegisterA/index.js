@@ -90,6 +90,7 @@ const RegisterA = (props) => {
                 })
                 .catch(() => {
                     setSuccessful(false);
+                    props.history.push("/resgister");
                     Swal.fire(
                         'Đăng ký không thành công',
                         'You clicked the button!',

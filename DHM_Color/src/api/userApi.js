@@ -62,12 +62,14 @@ const loginUser = (userName, password) => {
             return response.data;
         });
 };
-
 const logout = () => {
     localStorage.removeItem("user");
 };
-
+const getCurrentUser = () => {
+    return JSON.parse(localStorage.getItem("user"));
+};
 export default {
+    getCurrentUser,
     createUser,
     loginUser,
     logout,

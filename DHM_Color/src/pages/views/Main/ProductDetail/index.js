@@ -6,28 +6,26 @@ import { DataContext } from '../ActionCart';
 import apiDetail from '../../../../api/detailApi'
 import apiColor from '../../../../api/colorApi'
 
-const ProductDetail = () => {
+const ProductDetail = (props) => {
 
-
-    const [products, setProducts] = useState([]);
+    const { match } = props
+    const [products, setProducts] = useState();
     const [detail, setDetail] = useState([]);
-    const [colors, setColors] = useState([]);
-    const [sizes, setSizes] = useState([]);
     const value = useContext(DataContext);
     const addCart = value.addCart;
 
-    useEffect((id) => {
-        apiDetail.get(id).then((res) => {
-            console.log(res.data);
+    useEffect(() => {
+        apiDetail.get(match.params.id).then((res) => {
+            console.log(res.data, "ii");
             setDetail(res.data)
         })
+
     }, [])
 
-    const { id } = useParams();
-    const product = detail.filter(product => product.id === id)
 
     return (
         <div>
+            {console.log(match.params.id, " ss")}
             <div className="product">
                 <div className="container">
                     <div className="col-md-3 product-price">
@@ -89,21 +87,14 @@ const ProductDetail = () => {
 
                     <div className="col-md-9 product-price1">
 
-                        {/* {product?.map(({ id, image, index }) => (
-                            <div className="col-md-5 single-top">
-                                <img src={image} width="300" />
-                                {console.log(image, "ok")}
-                            </div>
-                        ))} */}
-
                         <div className="col-md-5 single-top">
-                            <img src={product.image} width="300" />
+                            <img src={detail.image} width="300" />
 
                         </div>
 
                         <div className="col-md-7 single-top-in simpleCart_shelfItem">
                             <div className="single-para ">
-                                <h4><strong>{products.nameproduct}</strong></h4>
+                                <h4><strong>{detail.nameproduct}</strong></h4>
 
                             </div>
                             <div className="col-md-7 single-top-in simpleCart_shelfItem">

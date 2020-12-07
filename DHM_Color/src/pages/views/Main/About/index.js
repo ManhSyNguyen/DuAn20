@@ -63,16 +63,16 @@ const About = () => {
         })
     }, []);
 
-    const getAllDetailbyProd = (id) => {
-        apiDetail.get(id).then((res) => {
-            console.log(res.data);
-            setDetail(res.data)
-        })
-    }
+    // const getAllDetailbyProd = (id) => {
+    //     apiDetail.get(id).then((res) => {
+    //         console.log(res.data);
+    //         setDetail(res.data)
+    //     })
+    // }
 
-    const onHandelClickDetail = (id) => {
-        getAllDetailbyProd(id)
-    }
+    // const onHandelClickDetail = (id) => {
+    //     getAllDetailbyProd(id)
+    // }
     //Phân trang
     const [Sotrang, setSotrang] = useState(0)
 
@@ -190,7 +190,8 @@ const About = () => {
                                             </div>
                                         </Link>
                                     </div>
-                                    <Link onClick={() => onHandelClickDetail(item.id)} to={`/productdetails/${item.id}`} className="tun">{item.nameproduct}</Link>
+                                    <Link to={`/productdetails/${item.id}`} className="tun">{item.nameproduct}</Link>
+                                    {console.log(item.id)}
                                     <p className="tun1">Size : S - M - L - XL</p>
                                     <Link to="/cart" onClick={() => addCart(item.id)} className="item_add">
                                         <p className="number item_price"><i> </i>{item.price} vnđ</p>

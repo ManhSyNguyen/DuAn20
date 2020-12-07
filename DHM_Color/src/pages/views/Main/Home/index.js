@@ -15,16 +15,6 @@ const Home = () => {
             setProducts(res.data)
         })
     }, []);
-    const getAllDetailbyProd = (id) => {
-        apiDetail.get(id).then((res) => {
-            console.log(res.data);
-            setDetail(res.data)
-        })
-    }
-
-    const onHandelClickDetail = (id) => {
-        getAllDetailbyProd(id)
-    }
     return (
         <div>
             <div className="content">
@@ -34,7 +24,7 @@ const Home = () => {
                         <div className="grid-in">
                             {products?.map((item, index) => (
                                 <div key={index} className="col-md-4 grid-top">
-                                    <Link to={`/productdetails/${item.id}`} onClick={() => onHandelClickDetail(item.id)} className="b-link-stripe b-animate-go  thickbox">
+                                    <Link to={`/productdetails/${item.id}`} className="b-link-stripe b-animate-go  thickbox">
                                         <img className="img-responsive" src={item.image} />
                                         <div className="b-wrapper">
                                             <h3 className="b-animate b-from-left    b-delay03 ">

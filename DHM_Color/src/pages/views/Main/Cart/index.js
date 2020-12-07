@@ -23,6 +23,8 @@ export default function Cart() {
             }, 0)
             setQty(quantity)
         }
+
+
         getTotal()
         getQty()
     }, [cart])

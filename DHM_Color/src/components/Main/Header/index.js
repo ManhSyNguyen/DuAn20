@@ -1,17 +1,23 @@
 import React, { useContext, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { DataContext } from '../../../pages/views/Main/ActionCart';
 
+import { logout } from "./../../../actions/auth";
 
 const Header = props => {
+    const { user: currentUser } = useSelector((state) => state.auth);
     const [KeyWord, setKeyWord] = useState('');
     const value = useContext(DataContext);
+    const dispatch = useDispatch();
     const [cart] = value.cart;
     const handleChangeKeyWord = (e) => {
         const { value } = e.target;
         setKeyWord(value)
     }
-
+    const logOut = () => {
+        dispatch(logout());
+    };
     return (
         <div className="header">
             <div className="header-top">
@@ -26,11 +32,19 @@ const Header = props => {
                     </div>
                     <div className="header-left">
                         <ul>
-                            <li><Link className="lock" to="/user/login">Đăng nhập</Link></li>
-                            <li><Link className="lock" to="/user/register">Đăng ký</Link></li>
-                            <li>
-                            </li>
+                            {currentUser ? (
+                                <div >
+                                    <li><Link className="lock" to="/user/login">{currentUser.username}</Link></li>
+                                    <li><Link className="lock" onClick={logOut}>Logout</Link></li>
+                                </div>
+                            ) : (
+                                    <div>
+                                        <li><Link className="lock" to="/user/login">Đăng nhập</Link></li>
+                                        <li><Link className="lock" to="/user/register">Đăng ký</Link></li>
+                                    </div>
+                                )}
                         </ul>
+
                         <div className="cart box_1">
                             <Link to="/cart">
                                 <h3> <div className="total">

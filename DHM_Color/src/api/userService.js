@@ -7,9 +7,9 @@ const API_URL = "http://localhost:5000/";
 //     return axios.get(API_URL + "all");
 // };
 
-// const getUserBoard = () => {
-//     return axios.get(API_URL + "user", { headers: authHeader() });
-// };
+const getUserBoard = () => {
+    return axios.get(API_URL + "user", { headers: authHeader() });
+};
 
 // const getModeratorBoard = () => {
 //     return axios.get(API_URL + "mod", { headers: authHeader() });
@@ -23,7 +23,7 @@ const getAdminBoard = () => {
 export default {
     // getPublicContent,
     getAdminBoard,
-    // getUserBoard,
+    getUserBoard,
     // getModeratorBoard,
 
 };

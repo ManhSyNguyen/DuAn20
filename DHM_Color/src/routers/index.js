@@ -189,7 +189,7 @@ const Routers = ({ products, onRemove, onAdd, onUpdate, users, sizes, onRemoveS,
                                     <About products={products} categorys={categorys} />
                                 </Route>
                                 <Route path="/productdetails/:id" exact>
-                                    <ProductDetail products={products} />
+                                    {({ match }) => <ProductDetail match={match} />}
                                 </Route>
                                 <Route path="/gioithieu">
                                     <Introduce />
