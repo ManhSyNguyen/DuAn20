@@ -58,7 +58,7 @@ const Sidebar = props => {
             </li>
             {/* Quan ly don hang */}
             <li className="nav-item active">
-                <Link className="nav-link" to="#">
+                <Link className="nav-link" to="/admin/order">
                     <i className="fas fa-fw fa-tachometer-alt" />
                     <span>Quản lý đơn hàng</span></Link>
             </li>

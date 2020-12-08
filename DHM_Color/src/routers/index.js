@@ -47,6 +47,8 @@ import RegisterA from '../pages/views/Admin/RegisterA';
 import LoginA from '../pages/views/Admin/LoginA';
 //member
 import DashboardMe from '../pages/views/Member/DashboardMe';
+import Oder from '../pages/views/Admin/Oder/step';
+import Order from '../pages/views/Admin/Oder';
 
 
 
@@ -170,6 +172,9 @@ const Routers = ({ products, onRemove, onAdd, onUpdate, users, sizes, onRemoveS,
                                 <Route path='/admin/contacts'>
                                     <Contacts />
                                 </Route>
+                                <Route path='/admin/order'>
+                                    <Order />
+                                </Route>
                             </Switch>
                         </LayoutAdmin>
                     </Route>
@@ -197,9 +202,6 @@ const Routers = ({ products, onRemove, onAdd, onUpdate, users, sizes, onRemoveS,
                                 <Route path="/lienhe">
                                     <Contact />
                                 </Route>
-                                {/* <Route path="/cate/:id">
-                                    <Categorys categorys={categorys} products={products} />
-                                </Route> */}
                                 <Route path="/baiviet">
                                     <Posts posts={posts} />
                                 </Route>

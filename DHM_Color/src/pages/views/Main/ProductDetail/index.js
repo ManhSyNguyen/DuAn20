@@ -88,7 +88,7 @@ const ProductDetail = (props) => {
                     <div className="col-md-9 product-price1">
 
                         <div className="col-md-5 single-top">
-                            <img src={detail.image} width="300" />
+                            <img src={match.params.image} width="300" />
 
                         </div>
 
@@ -99,7 +99,7 @@ const ProductDetail = (props) => {
                             </div>
                             <div className="col-md-7 single-top-in simpleCart_shelfItem">
                                 <div className="single-para ">
-                                    {/* <h4><strong>{detail.idcolor}</strong></h4> */}
+
                                     <div className="star-on">
                                         <ul className="star-footer">
                                             <li><a href="#"><i> </i></a></li>
@@ -115,7 +115,7 @@ const ProductDetail = (props) => {
                                     <del className="dels">{detail.price} vnđ </del><h5 className="item_price">{detail.price} vnđ</h5>
                                     <p>{detail.decription} </p>
 
-                                    {/* <h5 className="item_price">{detail.idcolor} </h5> */}
+
                                     <ul className="tag-men">
                                         <li><span>TAG</span>
                                             <span className="women1">: Men</span></li>

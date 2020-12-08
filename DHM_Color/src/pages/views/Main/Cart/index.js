@@ -3,7 +3,6 @@ import { DataContext } from '../ActionCart';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-
 export default function Cart() {
     const value = useContext(DataContext)
     const [cart, setCart] = value.cart;
@@ -156,6 +155,23 @@ export default function Cart() {
                                     {errors.address && errors.address.type === "pattern"
                                         && <span style={{ color: "red" }}>Không chứa kí tự đặc biệt</span>}
                                 </div>
+
+                                <div className="form-group">
+                                    <label className='lb'>Email<span style={{ color: 'red' }}>*</span></label>
+                                    <input type="text" lassName="form-control"
+                                        id="email" name="email"
+                                        ref={register({
+                                            required: true, minLength: 3,
+                                            pattern: /^\S+@\S+\.\S+$/
+                                        })} />
+                                    {errors.email && errors.email.type === "required"
+                                        && <span style={{ color: "red" }}>Vui lòng không để trống</span>}
+                                    {errors.email && errors.email.type === "minLength"
+                                        && <span style={{ color: "red" }}>Giá trị phải lớn hơn 5 kí tự</span>}
+                                    {errors.email && errors.email.type === "pattern"
+                                        && <span style={{ color: "red" }}>Email không đúng định dạng</span>}
+                                </div>
+
                                 <div className="form-group">
                                     <label className='lb'>Ghi chú</label>
                                     <textarea cols={77} rows={6} lassName="form-control"
@@ -163,6 +179,8 @@ export default function Cart() {
                                 </div>
 
                             </div>
+
+
 
                             <div className="col-md-3 cart-total" style={{ paddingTop: '29px', left: '50px' }}>
                                 <a className="continue" href="#">Tóm tắt đơn hàng</a>
@@ -181,7 +199,18 @@ export default function Cart() {
                                 <div className="clearfix" />
                                 <button type="submit" className="order">Đặt hàng</button>
                                 <div className="total-item">
-                                    <h3>Thanh toán an toàn : </h3>
+                                    <h3>Phương thức thanh toán : </h3>
+                                </div>
+                                <div>
+                                    <label className="radio">
+                                        <input type="radio" name="r" defaultValue={1} defaultChecked />
+                                        <span>Thanh toán khi nhận hàng</span>
+                                    </label>
+                                    <label className="radio">
+                                        <input type="radio" name="r" defaultValue={2} />
+                                        <span>Thanh toán qua chuyển khoản</span>
+                                    </label>
+
                                 </div>
                             </div>
                         </div>

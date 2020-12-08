@@ -7,7 +7,6 @@ import { DataContext } from '../ActionCart';
 const Home = () => {
     const [products, setProducts] = useState([]);
     const value = useContext(DataContext);
-    const [detail, setDetail] = useState([]);
     const addCart = value.addCart;
     useEffect(() => {
         apiProduct.getAll().then((res) => {

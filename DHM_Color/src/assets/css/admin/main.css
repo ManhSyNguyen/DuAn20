@@ -11415,5 +11415,15 @@ html {
   font-family: "Open Sans", sans-serif;
    font-size: 14px;
 }
+.step{
+  padding-top: 25px;
+}
 
+.MuiTypography-body2 {
+    font-size: 1.1rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    line-height: 1.43;
+    letter-spacing: 0.01071em;
+}
 /*# sourceMappingURL=main.css.map */
